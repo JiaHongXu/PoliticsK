@@ -10,6 +10,7 @@
 
 @interface AnswerBean : NSObject
 
-@property (nonatomic) int order;
+@property (nonatomic) NSInteger order;
 @property (nonatomic) NSString *anser;
+
 @end

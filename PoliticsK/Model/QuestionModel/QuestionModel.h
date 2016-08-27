@@ -11,7 +11,18 @@
 #import "AnswerBean.h"
 
 @interface QuestionModel : NSObject
+
+//初始化
+- (instancetype)initWithQuestion:(NSString *)question Options:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation;
+
+//获取题目
+- (NSString *)getQuestion;
+
 //获取选项列表
+- (NSArray *)getOptions;
+
+//获取解析
+- (NSString *)getExplanation;
 
 //选中选项和反选中选项
 - (void)selectAnswer:(AnswerBean *)answer;
