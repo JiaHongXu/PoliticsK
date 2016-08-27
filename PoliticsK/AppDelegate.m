@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic) MainViewController *mainViewController;
 @end
 
 @implementation AppDelegate
@@ -17,7 +18,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //通过代码显示视图
+    self.window = [UIWindow new];
+    [self.window makeKeyAndVisible];
+    self.window.frame = [[UIScreen mainScreen] bounds];
+    [self initAppNavigation];
+
+    
+    
     return YES;
+}
+
+-(void)initAppNavigation{
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    _mainNavigation = [[UINavigationController alloc] initWithRootViewController:_mainViewController];//唯一导航
+    _mainNavigation.navigationBarHidden = YES;
+    
+    self.window.rootViewController = _mainNavigation;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -7,25 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046882C4F86124919D2FD2DA /* libPods-PoliticsK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7275A7CDABABD6098B352074 /* libPods-PoliticsK.a */; };
+		2E36CD9D1D5768800020704F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36CD9C1D5768800020704F /* MainViewController.m */; };
 		2E6CA69C1D477B1A009BDE6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA69B1D477B1A009BDE6A /* main.m */; };
 		2E6CA69F1D477B1A009BDE6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA69E1D477B1A009BDE6A /* AppDelegate.m */; };
-		2E6CA6A21D477B1A009BDE6A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA6A11D477B1A009BDE6A /* ViewController.m */; };
 		2E6CA6A51D477B1A009BDE6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6CA6A31D477B1A009BDE6A /* Main.storyboard */; };
 		2E6CA6A71D477B1A009BDE6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6CA6A61D477B1A009BDE6A /* Assets.xcassets */; };
 		2E6CA6AA1D477B1A009BDE6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6CA6A81D477B1A009BDE6A /* LaunchScreen.storyboard */; };
+		2E6CA6B21D477B62009BDE6A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6CA6B11D477B62009BDE6A /* libsqlite3.tbd */; };
+		2E6CA6BD1D47811E009BDE6A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA6BC1D47811E009BDE6A /* LoginViewController.m */; };
+		2E6CA6C31D47876F009BDE6A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA6C21D47876F009BDE6A /* SettingViewController.m */; };
+		2ED1B5F91D716D3900BF73C7 /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B5F81D716D3900BF73C7 /* DBHelper.m */; };
+		2ED1B5FD1D717C7200BF73C7 /* PoliticEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B5FC1D717C7200BF73C7 /* PoliticEngine.m */; };
+		2ED1B6051D717E3F00BF73C7 /* AnswerBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B6041D717E3F00BF73C7 /* AnswerBean.m */; };
+		2ED1B6081D717E6D00BF73C7 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B6071D717E6D00BF73C7 /* QuestionModel.m */; };
+		2ED1B60C1D7181DF00BF73C7 /* SectionBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B60B1D7181DF00BF73C7 /* SectionBean.m */; };
+		2EDC31C61D53389B00544F41 /* Exam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EDC31C41D53389B00544F41 /* Exam.storyboard */; };
+		2EDC31EE1D5611BF00544F41 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC31ED1D5611BF00544F41 /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0258F083E87DF7D41ABF2D /* Pods-PoliticsK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticsK.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticsK/Pods-PoliticsK.release.xcconfig"; sourceTree = "<group>"; };
+		2E36CD9B1D5768800020704F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ViewController/Main/MainViewController.h; sourceTree = "<group>"; };
+		2E36CD9C1D5768800020704F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ViewController/Main/MainViewController.m; sourceTree = "<group>"; };
 		2E6CA6971D477B1A009BDE6A /* PoliticsK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliticsK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6CA69B1D477B1A009BDE6A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2E6CA69D1D477B1A009BDE6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E6CA69E1D477B1A009BDE6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2E6CA6A01D477B1A009BDE6A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2E6CA6A11D477B1A009BDE6A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2E6CA6A41D477B1A009BDE6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E6CA6A61D477B1A009BDE6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E6CA6A91D477B1A009BDE6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E6CA6AB1D477B1A009BDE6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E6CA6B11D477B62009BDE6A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		2E6CA6BB1D47811E009BDE6A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ViewController/Login/LoginViewController.h; sourceTree = "<group>"; };
+		2E6CA6BC1D47811E009BDE6A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ViewController/Login/LoginViewController.m; sourceTree = "<group>"; };
+		2E6CA6C11D47876F009BDE6A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ViewController/Setting/SettingViewController.h; sourceTree = "<group>"; };
+		2E6CA6C21D47876F009BDE6A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ViewController/Setting/SettingViewController.m; sourceTree = "<group>"; };
+		2ED1B5F71D716D3900BF73C7 /* DBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBHelper.h; path = Universal/Tools/DBHelper/DBHelper.h; sourceTree = "<group>"; };
+		2ED1B5F81D716D3900BF73C7 /* DBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBHelper.m; path = Universal/Tools/DBHelper/DBHelper.m; sourceTree = "<group>"; };
+		2ED1B5FB1D717C7200BF73C7 /* PoliticEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoliticEngine.h; path = Universal/Tools/PoliticEngine/PoliticEngine.h; sourceTree = "<group>"; };
+		2ED1B5FC1D717C7200BF73C7 /* PoliticEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoliticEngine.m; path = Universal/Tools/PoliticEngine/PoliticEngine.m; sourceTree = "<group>"; };
+		2ED1B6031D717E3F00BF73C7 /* AnswerBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnswerBean.h; path = Model/AnswerBean/AnswerBean.h; sourceTree = "<group>"; };
+		2ED1B6041D717E3F00BF73C7 /* AnswerBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnswerBean.m; path = Model/AnswerBean/AnswerBean.m; sourceTree = "<group>"; };
+		2ED1B6061D717E6D00BF73C7 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionModel.h; path = Model/QuestionModel/QuestionModel.h; sourceTree = "<group>"; };
+		2ED1B6071D717E6D00BF73C7 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionModel.m; path = Model/QuestionModel/QuestionModel.m; sourceTree = "<group>"; };
+		2ED1B60A1D7181DF00BF73C7 /* SectionBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionBean.h; path = Model/SectionBean/SectionBean.h; sourceTree = "<group>"; };
+		2ED1B60B1D7181DF00BF73C7 /* SectionBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionBean.m; path = Model/SectionBean/SectionBean.m; sourceTree = "<group>"; };
+		2EDC31C51D53389B00544F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Exam.storyboard; sourceTree = "<group>"; };
+		2EDC31EA1D56103200544F41 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = PoliticsK/PrefixHeader.pch; sourceTree = "<group>"; };
+		2EDC31EC1D5611BF00544F41 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ViewController/Base/BaseViewController.h; sourceTree = "<group>"; };
+		2EDC31ED1D5611BF00544F41 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ViewController/Base/BaseViewController.m; sourceTree = "<group>"; };
+		7275A7CDABABD6098B352074 /* libPods-PoliticsK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PoliticsK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB219DDA273B7F0E3162CE3E /* Pods-PoliticsK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticsK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticsK/Pods-PoliticsK.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E6CA6B21D477B62009BDE6A /* libsqlite3.tbd in Frameworks */,
+				046882C4F86124919D2FD2DA /* libPods-PoliticsK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,8 +77,12 @@
 		2E6CA68E1D477B1A009BDE6A = {
 			isa = PBXGroup;
 			children = (
+				2EDC31EA1D56103200544F41 /* PrefixHeader.pch */,
+				2E6CA6B11D477B62009BDE6A /* libsqlite3.tbd */,
 				2E6CA6991D477B1A009BDE6A /* PoliticsK */,
 				2E6CA6981D477B1A009BDE6A /* Products */,
+				D0C9196483FEE38C2525DCE4 /* Pods */,
+				9CA3B9E7C86CDA53B63DB8B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +97,13 @@
 		2E6CA6991D477B1A009BDE6A /* PoliticsK */ = {
 			isa = PBXGroup;
 			children = (
+				2E6CA6BE1D47812B009BDE6A /* StoryBoard */,
+				2E6CA6B51D477C91009BDE6A /* Model & Bean */,
+				2E6CA6B41D477C1B009BDE6A /* Tools */,
+				2E6CA6B31D477C04009BDE6A /* ViewController */,
 				2E6CA69D1D477B1A009BDE6A /* AppDelegate.h */,
 				2E6CA69E1D477B1A009BDE6A /* AppDelegate.m */,
-				2E6CA6A01D477B1A009BDE6A /* ViewController.h */,
-				2E6CA6A11D477B1A009BDE6A /* ViewController.m */,
-				2E6CA6A31D477B1A009BDE6A /* Main.storyboard */,
 				2E6CA6A61D477B1A009BDE6A /* Assets.xcassets */,
-				2E6CA6A81D477B1A009BDE6A /* LaunchScreen.storyboard */,
 				2E6CA6AB1D477B1A009BDE6A /* Info.plist */,
 				2E6CA69A1D477B1A009BDE6A /* Supporting Files */,
 			);
@@ -79,6 +118,144 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2E6CA6B31D477C04009BDE6A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2EDC31EB1D56118E00544F41 /* BaseController */,
+				2E6CA6C01D478741009BDE6A /* Setting */,
+				2E6CA6BF1D478735009BDE6A /* Main */,
+				2E6CA6BA1D4780AB009BDE6A /* Login */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		2E6CA6B41D477C1B009BDE6A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B5FA1D717C4200BF73C7 /* PoliticEngine */,
+				2ED1B5F61D716CF100BF73C7 /* DBHelper */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		2E6CA6B51D477C91009BDE6A /* Model & Bean */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B6091D7181BE00BF73C7 /* SectionBean */,
+				2ED1B6021D717E1300BF73C7 /* Answer Bean */,
+				2ED1B5FE1D717DD000BF73C7 /* Question Model */,
+			);
+			name = "Model & Bean";
+			sourceTree = "<group>";
+		};
+		2E6CA6BA1D4780AB009BDE6A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CA6BB1D47811E009BDE6A /* LoginViewController.h */,
+				2E6CA6BC1D47811E009BDE6A /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		2E6CA6BE1D47812B009BDE6A /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CA6A31D477B1A009BDE6A /* Main.storyboard */,
+				2E6CA6A81D477B1A009BDE6A /* LaunchScreen.storyboard */,
+				2EDC31C41D53389B00544F41 /* Exam.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		2E6CA6BF1D478735009BDE6A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2E36CD9B1D5768800020704F /* MainViewController.h */,
+				2E36CD9C1D5768800020704F /* MainViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		2E6CA6C01D478741009BDE6A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CA6C11D47876F009BDE6A /* SettingViewController.h */,
+				2E6CA6C21D47876F009BDE6A /* SettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		2ED1B5F61D716CF100BF73C7 /* DBHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B5F71D716D3900BF73C7 /* DBHelper.h */,
+				2ED1B5F81D716D3900BF73C7 /* DBHelper.m */,
+			);
+			name = DBHelper;
+			sourceTree = "<group>";
+		};
+		2ED1B5FA1D717C4200BF73C7 /* PoliticEngine */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B5FB1D717C7200BF73C7 /* PoliticEngine.h */,
+				2ED1B5FC1D717C7200BF73C7 /* PoliticEngine.m */,
+			);
+			name = PoliticEngine;
+			sourceTree = "<group>";
+		};
+		2ED1B5FE1D717DD000BF73C7 /* Question Model */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B6061D717E6D00BF73C7 /* QuestionModel.h */,
+				2ED1B6071D717E6D00BF73C7 /* QuestionModel.m */,
+			);
+			name = "Question Model";
+			sourceTree = "<group>";
+		};
+		2ED1B6021D717E1300BF73C7 /* Answer Bean */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B6031D717E3F00BF73C7 /* AnswerBean.h */,
+				2ED1B6041D717E3F00BF73C7 /* AnswerBean.m */,
+			);
+			name = "Answer Bean";
+			sourceTree = "<group>";
+		};
+		2ED1B6091D7181BE00BF73C7 /* SectionBean */ = {
+			isa = PBXGroup;
+			children = (
+				2ED1B60A1D7181DF00BF73C7 /* SectionBean.h */,
+				2ED1B60B1D7181DF00BF73C7 /* SectionBean.m */,
+			);
+			name = SectionBean;
+			sourceTree = "<group>";
+		};
+		2EDC31EB1D56118E00544F41 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				2EDC31EC1D5611BF00544F41 /* BaseViewController.h */,
+				2EDC31ED1D5611BF00544F41 /* BaseViewController.m */,
+			);
+			name = BaseController;
+			sourceTree = "<group>";
+		};
+		9CA3B9E7C86CDA53B63DB8B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7275A7CDABABD6098B352074 /* libPods-PoliticsK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D0C9196483FEE38C2525DCE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB219DDA273B7F0E3162CE3E /* Pods-PoliticsK.debug.xcconfig */,
+				0E0258F083E87DF7D41ABF2D /* Pods-PoliticsK.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E6CA6AE1D477B1A009BDE6A /* Build configuration list for PBXNativeTarget "PoliticsK" */;
 			buildPhases = (
+				CEDC9E3775C9F0A0C5E92F7C /* [CP] Check Pods Manifest.lock */,
 				2E6CA6931D477B1A009BDE6A /* Sources */,
 				2E6CA6941D477B1A009BDE6A /* Frameworks */,
 				2E6CA6951D477B1A009BDE6A /* Resources */,
+				E547DD9D239583CF07A2A2DF /* [CP] Embed Pods Frameworks */,
+				6393C567B04247BDF91B4109 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E6CA6AA1D477B1A009BDE6A /* LaunchScreen.storyboard in Resources */,
+				2EDC31C61D53389B00544F41 /* Exam.storyboard in Resources */,
 				2E6CA6A71D477B1A009BDE6A /* Assets.xcassets in Resources */,
 				2E6CA6A51D477B1A009BDE6A /* Main.storyboard in Resources */,
 			);
@@ -144,14 +325,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6393C567B04247BDF91B4109 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliticsK/Pods-PoliticsK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEDC9E3775C9F0A0C5E92F7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E547DD9D239583CF07A2A2DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliticsK/Pods-PoliticsK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2E6CA6931D477B1A009BDE6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E6CA6A21D477B1A009BDE6A /* ViewController.m in Sources */,
+				2ED1B60C1D7181DF00BF73C7 /* SectionBean.m in Sources */,
 				2E6CA69F1D477B1A009BDE6A /* AppDelegate.m in Sources */,
+				2E36CD9D1D5768800020704F /* MainViewController.m in Sources */,
 				2E6CA69C1D477B1A009BDE6A /* main.m in Sources */,
+				2E6CA6BD1D47811E009BDE6A /* LoginViewController.m in Sources */,
+				2ED1B5FD1D717C7200BF73C7 /* PoliticEngine.m in Sources */,
+				2ED1B6081D717E6D00BF73C7 /* QuestionModel.m in Sources */,
+				2EDC31EE1D5611BF00544F41 /* BaseViewController.m in Sources */,
+				2ED1B6051D717E3F00BF73C7 /* AnswerBean.m in Sources */,
+				2ED1B5F91D716D3900BF73C7 /* DBHelper.m in Sources */,
+				2E6CA6C31D47876F009BDE6A /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +409,14 @@
 				2E6CA6A91D477B1A009BDE6A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2EDC31C41D53389B00544F41 /* Exam.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EDC31C51D53389B00544F41 /* Base */,
+			);
+			name = Exam.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,8 +506,11 @@
 		};
 		2E6CA6AF1D477B1A009BDE6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB219DDA273B7F0E3162CE3E /* Pods-PoliticsK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PoliticsK/PrefixHeader.pch";
 				INFOPLIST_FILE = PoliticsK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiahong.PoliticsK;
@@ -272,8 +520,11 @@
 		};
 		2E6CA6B01D477B1A009BDE6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E0258F083E87DF7D41ABF2D /* Pods-PoliticsK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PoliticsK/PrefixHeader.pch";
 				INFOPLIST_FILE = PoliticsK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiahong.PoliticsK;
@@ -300,6 +551,7 @@
 				2E6CA6B01D477B1A009BDE6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

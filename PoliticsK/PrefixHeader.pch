@@ -1,0 +1,36 @@
+//
+//  PrefixHeader.pch
+//  PoliticsK
+//
+//  Created by 307A on 16/8/6.
+//  Copyright © 2016年 徐嘉宏. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+#define PRIMARY_COLOR [UIColor colorWithRed:236/255.0 green:90/255.0 blue:130/255.0 alpha:1.0]
+
+//获取屏幕大小
+#define SCREEN_WIDTH [[UIScreen mainScreen]bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen]bounds].size.height
+
+
+//主要业务常量
+
+//科目 ProjectType
+#define MAYUAN 1
+#define MAIGAI 2
+#define JINDAISHI 3
+#define SIXIU 4
+
+//选项 options
+#define A 1
+#define B 2
+#define C 3
+#define D 4
