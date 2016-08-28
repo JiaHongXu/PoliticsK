@@ -13,21 +13,22 @@
 @interface QuestionModel : NSObject
 
 //初始化
-- (instancetype)initWithQuestion:(NSString *)question Options:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation;
+- (instancetype)initWithQuestion:(NSString *)questionNum andContent:(NSString *)content andOptions:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation;
+
+//获取题号
+- (NSString *)getQuestionNum;
 
 //获取题目
-- (NSString *)getQuestion;
+- (NSString *)getContent;
 
-//获取选项列表
+//获取选项
 - (NSArray *)getOptions;
 
 //获取解析
 - (NSString *)getExplanation;
 
 //选中选项和反选中选项
-- (void)selectAnswer:(AnswerBean *)answer;
-- (void)unselectAnswer:(AnswerBean *)answer;
-
+- (void)setAnswer:(AnswerBean *)answer isSelected:(BOOL)isSelected;
 //检查已选择答案是否正确
 - (BOOL)checkAnswer;
 @end

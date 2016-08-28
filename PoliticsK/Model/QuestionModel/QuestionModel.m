@@ -9,33 +9,37 @@
 #import "QuestionModel.h"
 
 @interface QuestionModel()
+@property (nonatomic) NSString *questionNum;
 
-@property (nonatomic) NSString *question;
+@property (nonatomic) NSString *questionContent;
 @property (nonatomic) NSString *explanation;
 
 @property (nonatomic) NSArray *options;
 @property (nonatomic) NSArray *correctAnswsers;
-@property (nonatomic) NSMutableArray *selectedAnswers;
 
 @end
 
 @implementation QuestionModel
 
-- (instancetype)initWithQuestion:(NSString *)question Options:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation{
+- (instancetype)initWithQuestion:(NSString *)questionNum andContent:(NSString *)content andOptions:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation{
     
     if (self = [super init]) {
-        _question = question;
+        _questionNum = questionNum;
+        _questionContent = content;
         _options = options;
         _correctAnswsers = answers;
         _explanation = explanation;
-        _selectedAnswers = [[NSMutableArray alloc] initWithCapacity:0];
     }
     
     return self;
 }
 
-- (NSString *)getQuestion{
-    return _question;
+- (NSString *)getContent{
+    return _questionContent;
+}
+
+- (NSString *)getQuestionNum{
+    return _questionNum;
 }
 
 - (NSArray *)getOptions{
@@ -46,29 +50,28 @@
     return _explanation;
 }
 
-- (void)selectAnswer:(AnswerBean *)answer{
-    NSNumber *index = [NSNumber numberWithUnsignedInteger:[_options indexOfObject:answer]];
-    [_selectedAnswers addObject:index];
-}
-
-- (void)unselectAnswer:(AnswerBean *)answer{
-    for (NSNumber *index in _selectedAnswers) {
-        if ([index isEqualToNumber:[NSNumber numberWithUnsignedInteger:[_options indexOfObject:answer]]]) {
-            [_selectedAnswers removeObject:index];
+- (void)setAnswer:(AnswerBean *)answer isSelected:(BOOL)isSelected{
+    for (AnswerBean *temp in _options) {
+        if ([[temp getAnswerNum] isEqualToString:[answer getAnswerNum]]) {
+            [temp setSelected:isSelected];
             return;
         }
     }
     
-    NSAssert(@"发生异常", @"反选择出现错误");
+    NSAssert(@"选项错误", @"没有选中");
 }
 
 - (BOOL)checkAnswer{
     int i = 0;
     
-    for (NSNumber *selectedIndex in _selectedAnswers) {
-        for (NSNumber *correctIndex in _correctAnswsers) {
-            if ([selectedIndex isEqualToNumber:correctIndex]) {
-                i++;
+    for (AnswerBean *selectedAnswer in _options) {
+        for (AnswerBean *correctAnswer in _correctAnswsers) {
+            if ([selectedAnswer getAnswerNum] == [correctAnswer getAnswerNum]) {
+                if ([selectedAnswer getIsSelected]) {
+                    i++;
+                }else{
+                    return NO;
+                }
             }
         }
     }

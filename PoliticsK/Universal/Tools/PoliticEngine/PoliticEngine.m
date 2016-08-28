@@ -9,8 +9,20 @@
 
 #import "PoliticEngine.h"
 
+@interface PoliticEngine()
+@property (nonatomic) NSMutableArray *questions;
+@property (nonatomic) int correctCount;
+@property (nonatomic) int unfinishedCount;
+
+@property (nonatomic) int leftTime;
+
+@end
+
 @implementation PoliticEngine
 
+//- (PoliticEngine *)getPoliticEngineWithSection:(SectionBean *)section andType:(int)doType{
+//    
+//}
 
 
 @end

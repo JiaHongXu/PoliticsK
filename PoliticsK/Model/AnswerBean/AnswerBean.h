@@ -10,7 +10,10 @@
 
 @interface AnswerBean : NSObject
 
-@property (nonatomic) NSInteger order;
-@property (nonatomic) NSString *anser;
-
+- (instancetype)initWithNum:(NSString *)num andContent:(NSString *)content andOrder:(int)order;
+- (NSString *)getAnswerNum;
+- (NSString *)getAnswerContent;
+- (int)getAnswerOrder;
+- (void)setSelected:(BOOL)selected;
+- (BOOL)getIsSelected;
 @end

@@ -20,11 +20,13 @@
 //section:选择的章节 doType:答题模式
 - (PoliticEngine *)getPoliticEngineWithSection:(SectionBean *)section andType:(int)doType;
 
-//获取章节
-//projectType:科目类型
-- (NSMutableArray *)getSectionsWithProject:(int)projectType;
+//section:选择的科目 doType:答题模式
+- (PoliticEngine *)getPoliticEngineWithProject:(int)project andType:(int)doType;
 
 //获得上一个、下一个题目
 - (QuestionModel *)getNextQuestion;
 - (QuestionModel *)getLastQuestion;
+
+//获得答题进度
+- (int)getProgress;
 @end

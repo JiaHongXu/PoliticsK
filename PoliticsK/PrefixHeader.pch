@@ -34,3 +34,11 @@
 #define B 2
 #define C 3
 #define D 4
+
+//答题模式 doType
+#define SECTION_IN_ORDER 1
+//#define SECTION_RANDOM 2
+#define PROJECT_IN_ORDER 3
+#define PROJECT_RANDOM 4
+#define PROJECT_EXAM 5
+#define SECTION_TEST 6
