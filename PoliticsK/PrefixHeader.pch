@@ -24,10 +24,10 @@
 //主要业务常量
 
 //科目 ProjectType
-#define PROJECT_TYPE_MAYUAN 1
-#define PROJECT_TYPE_MAIGAI 2
-#define PROJECT_TYPE_JINDAISHI 3
-#define PROJECT_TYPE_SIXIU 4
+#define PROJECT_TYPE_MAYUAN @"1"
+#define PROJECT_TYPE_MAIGAI @"2"
+#define PROJECT_TYPE_JINDAISHI @"3"
+#define PROJECT_TYPE_SIXIU @"4"
 
 //选项 options
 #define OPTIONS_A 1

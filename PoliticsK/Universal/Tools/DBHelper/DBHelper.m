@@ -9,6 +9,8 @@
 #import "DBHelper.h"
 #import "FMDatabase.h"
 #import "QuestionModel.h"
+#import "SectionBean.h"
+#import "AnswerBean.h"
 
 @implementation DBHelper
 
@@ -21,9 +23,9 @@ static FMDatabase *db;
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *filePath = [path stringByAppendingPathComponent:DBPATH];
-    FMDatabase *database = [FMDatabase databaseWithPath:filePath];
+    db = [FMDatabase databaseWithPath:filePath];
     
-    if ([database open]) {
+    if ([db open]) {
         success(@"打开数据库成功");
     }else{
         failure(@"打开数据库失败", nil);
@@ -57,21 +59,75 @@ static FMDatabase *db;
 
 + (NSMutableArray *)getQuestionsBySection:(SectionBean *)section{
     NSMutableArray *questions = [[NSMutableArray alloc] initWithCapacity:0];
-    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM Question WHERE CharaterNum = %d", section.sectionNum];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM Question WHERE CharaterNum = %@", [section getSectionNum]];
     FMResultSet *s = [db executeQuery:sql];
     while ([s next]) {
         // 每条记录的检索值
         QuestionModel *model = [[QuestionModel alloc] initWithQuestion:[s stringForColumn:@"QuestionNum"] andContent:[s stringForColumn:@"QuestionContent"] andCorrectAnswers:[s stringForColumn:@"CorrectAnswer"] andExplaination:[s stringForColumn:@"QuestionExplain"]];
+        [self setOptionsByQuestion:model];
         [questions addObject:model];
     }
     
     return questions;
 }
 
-+ (NSMutableArray *)getSectionsBySubjectType:(int)SubjectType{
-    NSMutableArray *sections = [[NSMutableArray alloc] initWithCapacity:0];
-//    NSString *sql = [NSString stringWithFormat:@"SELECT  FROM Question WHERE CharaterNum = %d", section.sectionNum];
++ (QuestionModel *)getQuestionByQuestionNum:(NSString *)questionNum{
+    QuestionModel *model;
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM Question WHERE QuestionNum = %@", questionNum];
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        model = [[QuestionModel alloc] initWithQuestion:[s stringForColumn:@"QuestionNum"] andContent:[s stringForColumn:@"QuestionContent"] andCorrectAnswers:[s stringForColumn:@"CorrectAnswer"] andExplaination:[s stringForColumn:@"QuestionExplain"]];
+    }
     
+    return model;
+}
+
++ (void)setOptionsByQuestion:(QuestionModel *)question{
+    NSMutableArray *options = [[NSMutableArray alloc] initWithCapacity:0];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM Answer WHERE QuestionNum = %@", [question getQuestionNum]];
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        // 每条记录的检索值
+        AnswerBean *bean = [[AnswerBean alloc] initWithAnswerNum:[s stringForColumn:@"AnswerNum"] andQuestionNum:[s stringForColumn:@"QuestionNum"] andContent:[s stringForColumn:@"AnswerContent"] andOrder:[s stringForColumn:@"AnswerABCD"]];
+        [options addObject:bean];
+    }
+    [question setOption:options];
+}
+
++ (NSMutableArray *)getSectionsBySubjectType:(NSString *)SubjectType{
+    NSMutableArray *sections = [[NSMutableArray alloc] initWithCapacity:0];
+    NSString *sql = [NSString stringWithFormat:@"SELECT Charater.CharaterNum, Charater.CharaterName FROM Charater, Section, R_Section_Charater WHERE Charater.CharaterNum = R_Section_Charater.CharaterNum and R_Section_Charater.SectionNum = Section.SectionNum and Section.SectionNum = %@", SubjectType];
+    
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        // 每条记录的检索值
+        SectionBean *bean = [[SectionBean alloc] initWithSectionNum:[s stringForColumn:@"CharaterNum"] andSectionName:[s stringForColumn:@"CharaterName"]];
+                             
+        [sections addObject:bean];
+    }
+
     return sections;
+}
+
++ (void)setIsCorrect:(BOOL)isCorrect byQuestion:(QuestionModel *)question{
+    int boolValue = [self valueOfBool:isCorrect];
+    
+//    NSString *sql = [NSString stringWithFormat:@"UPDATE SET  WHERE CharaterNum = %@", [section getSectionNum]];
+//    
+//    if (![db executeUpdate:sql]) {
+//        NSLog(@"%@", [db lastError].description);
+//    }
+}
+
++ (void)setIsCollected:(BOOL)isCollected byQuestion:(QuestionModel *)question{
+    
+}
+
++ (int)valueOfBool:(BOOL)Bool{
+    if (Bool) {
+        return 1;
+    }else{
+        return 0;
+    }
 }
 @end

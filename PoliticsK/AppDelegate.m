@@ -22,6 +22,11 @@
     [self initUserData];
     [self initDataBase];
     
+    //测试 获得章节
+    NSMutableArray *array = [DBHelper getSectionsBySubjectType:@"1"];
+    
+    //测试 获得题目
+    NSMutableArray *array1 = [DBHelper getQuestionsBySection:[array objectAtIndex:0]];
     //通过代码显示视图
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

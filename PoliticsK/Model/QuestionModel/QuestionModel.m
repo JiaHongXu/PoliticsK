@@ -7,6 +7,7 @@
 //
 
 #import "QuestionModel.h"
+#import "DBHelper.h"
 
 @interface QuestionModel()
 @property (nonatomic) NSString *questionNum;
@@ -15,7 +16,7 @@
 @property (nonatomic) NSString *explanation;
 
 @property (nonatomic) NSMutableArray *options;
-@property (nonatomic) NSMutableArray *correctAnswsers;
+@property (nonatomic) NSString *correctAnswsers;
 
 @end
 
@@ -27,7 +28,7 @@
         _questionNum = questionNum;
         _questionContent = content;
         _explanation = explanation;
-        [self setCorrectAnswerWithString:answers];
+        _correctAnswsers = answers;
     }
     
     return self;
@@ -41,8 +42,8 @@
     return _questionNum;
 }
 
-- (void)setOption:(AnswerBean *)option{
-    [_options addObject:option];
+- (void)setOption:(NSMutableArray *)options{
+    _options = options;
 }
 
 - (NSArray *)getOptions{
@@ -68,25 +69,22 @@
     int i = 0;
     
     for (AnswerBean *selectedAnswer in _options) {
-        for (AnswerBean *correctAnswer in _correctAnswsers) {
-            if ([selectedAnswer getAnswerNum] == [correctAnswer getAnswerNum]) {
-                if ([selectedAnswer getIsSelected]) {
-                    i++;
-                }else{
-                    return NO;
-                }
+        if ([selectedAnswer getIsSelected]) {
+            if ([_correctAnswsers containsString:[selectedAnswer getAnswerOrder]]) {
+                i++;
             }
         }
     }
     
-    if (i==_correctAnswsers.count) {
+    if (i==[self numberOfCorrectAnswers]) {
         return YES;
     }else{
         return NO;
     }
 }
 
-- (void)setCorrectAnswerWithString:(NSString *)string{
-    
+- (int)numberOfCorrectAnswers{
+    return ((int)[_correctAnswsers length] + 1)/2;
 }
+
 @end

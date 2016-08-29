@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface SectionBean : NSObject
-@property (nonatomic) int sectionNum;
-@property (nonatomic) NSString *sectionName;
+- (instancetype)initWithSectionNum:(NSString *)sectionNum andSectionName:(NSString *)sectionName;
+
+- (NSString *)getSectionNum;
+
+- (NSString *)getSectionName;
 @end

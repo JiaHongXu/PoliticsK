@@ -9,16 +9,18 @@
 #import "AnswerBean.h"
 @interface AnswerBean()
 @property (nonatomic) NSString *answerNum;
+@property (nonatomic) NSString *questionNum;
 @property (nonatomic) NSString *anserContent;
-@property (nonatomic) int answerOrder;//A,B,C,D
+@property (nonatomic) NSString *answerOrder;//A,B,C,D
 @property (nonatomic) BOOL isSelected;
 @end
 
 @implementation AnswerBean
 
-- (instancetype)initWithNum:(NSString *)num andContent:(NSString *)content andOrder:(int)order{
+- (instancetype)initWithAnswerNum:(NSString *)answerNum andQuestionNum:(NSString *)questioNum andContent:(NSString *)content andOrder:(NSString *)order{
     if (self = [super init]) {
-        _answerNum = num;
+        _answerNum = answerNum;
+        _questionNum = questioNum;
         _anserContent = content;
         _answerOrder = order;
         _isSelected = NO;
@@ -34,7 +36,7 @@
     return _anserContent;
 }
 
-- (int)getAnswerOrder{
+- (NSString *)getAnswerOrder{
     return _answerOrder;
 }
 

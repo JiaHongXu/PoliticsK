@@ -22,7 +22,7 @@
 - (NSString *)getContent;
 
 //设置选项
-- (void)setOption:(AnswerBean *)option;
+- (void)setOption:(NSMutableArray *)options;
 
 //获取选项
 - (NSArray *)getOptions;
@@ -34,4 +34,6 @@
 - (void)setAnswer:(AnswerBean *)answer isSelected:(BOOL)isSelected;
 //检查已选择答案是否正确
 - (BOOL)checkAnswer;
+//获取正确答案个数
+- (int)numberOfCorrectAnswers;
 @end

@@ -10,10 +10,10 @@
 
 @interface AnswerBean : NSObject
 
-- (instancetype)initWithNum:(NSString *)num andContent:(NSString *)content andOrder:(int)order;
+- (instancetype)initWithAnswerNum:(NSString *)answerNum andQuestionNum:(NSString *)questioNum andContent:(NSString *)content andOrder:(NSString *)order;
 - (NSString *)getAnswerNum;
 - (NSString *)getAnswerContent;
-- (int)getAnswerOrder;
+- (NSString *)getAnswerOrder;
 - (void)setSelected:(BOOL)selected;
 - (BOOL)getIsSelected;
 @end

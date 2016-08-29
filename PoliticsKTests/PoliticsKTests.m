@@ -7,15 +7,22 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "DBHelper.h"
 
 @interface PoliticsKTests : XCTestCase
-
+@property (nonatomic) NSMutableArray *array;
 @end
 
 @implementation PoliticsKTests
 
 - (void)setUp {
     [super setUp];
+    [DBHelper initUserUsageDataSuccess:^(NSString *msg) {
+        NSLog(@"%@",msg);
+    } Failure:^(NSString *msg, NSError *error) {
+        NSLog(@"%@",msg);
+    }];
+    _array = [DBHelper getSectionsBySubjectType:@"1"];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     //初始化的代码，在测试方法调用之前调用
 }
@@ -36,6 +43,11 @@
     // This is an example of a performance test case.
     // 测试性能例子
     [self measureBlock:^{
+        //测试 获得章节
+        
+        
+        //测试 获得题目
+        NSMutableArray *array1 = [DBHelper getQuestionsBySection:[_array objectAtIndex:0]];
         // Put the code you want to measure the time of here.
         // 需要测试性能的代码
     }];

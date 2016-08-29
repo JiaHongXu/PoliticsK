@@ -22,7 +22,7 @@
 + (QuestionModel *)getQuestionByQuestionNum:(NSString *)questionNum;
 
 //根据科目号获取章节
-+ (NSMutableArray *)getSectionsBySubjectType:(int)SubjectType;
++ (NSMutableArray *)getSectionsBySubjectType:(NSString *)SubjectType;
 
 //根据题号设置题目被收藏
 + (void)setIsCollected:(BOOL)isCollected byQuestion:(QuestionModel *)question;
