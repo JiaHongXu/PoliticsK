@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "DBHelper.h"
 
 @interface AppDelegate ()
 @property (nonatomic) MainViewController *mainViewController;
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self initUserData];
+    [self initDataBase];
     
     //通过代码显示视图
     self.window = [UIWindow new];
@@ -39,6 +42,18 @@
     
     self.window.rootViewController = _mainNavigation;
 
+}
+
+- (void)initDataBase{
+    [DBHelper initUserUsageDataSuccess:^(NSString *msg) {
+        NSLog(@"%@",msg);
+    } Failure:^(NSString *msg, NSError *error) {
+        NSLog(@"%@",msg);
+    }];
+}
+
+- (void)initUserData{
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

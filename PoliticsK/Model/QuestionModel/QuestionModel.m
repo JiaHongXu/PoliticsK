@@ -14,21 +14,20 @@
 @property (nonatomic) NSString *questionContent;
 @property (nonatomic) NSString *explanation;
 
-@property (nonatomic) NSArray *options;
-@property (nonatomic) NSArray *correctAnswsers;
+@property (nonatomic) NSMutableArray *options;
+@property (nonatomic) NSMutableArray *correctAnswsers;
 
 @end
 
 @implementation QuestionModel
 
-- (instancetype)initWithQuestion:(NSString *)questionNum andContent:(NSString *)content andOptions:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation{
+- (instancetype)initWithQuestion:(NSString *)questionNum andContent:(NSString *)content andCorrectAnswers:(NSString *)answers andExplaination:(NSString *)explanation{
     
     if (self = [super init]) {
         _questionNum = questionNum;
         _questionContent = content;
-        _options = options;
-        _correctAnswsers = answers;
         _explanation = explanation;
+        [self setCorrectAnswerWithString:answers];
     }
     
     return self;
@@ -40,6 +39,10 @@
 
 - (NSString *)getQuestionNum{
     return _questionNum;
+}
+
+- (void)setOption:(AnswerBean *)option{
+    [_options addObject:option];
 }
 
 - (NSArray *)getOptions{
@@ -81,5 +84,9 @@
     }else{
         return NO;
     }
+}
+
+- (void)setCorrectAnswerWithString:(NSString *)string{
+    
 }
 @end

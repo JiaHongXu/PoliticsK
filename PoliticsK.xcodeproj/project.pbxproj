@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		046882C4F86124919D2FD2DA /* libPods-PoliticsK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7275A7CDABABD6098B352074 /* libPods-PoliticsK.a */; };
 		2E1CDA401D728ADC002A2CD7 /* PoliticHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CDA3F1D728ADC002A2CD7 /* PoliticHelper.m */; };
+		2E1CDA481D72CEC5002A2CD7 /* PoliticsKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CDA471D72CEC5002A2CD7 /* PoliticsKTests.m */; };
+		2E1CDA531D72D259002A2CD7 /* LoginHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1CDA521D72D259002A2CD7 /* LoginHelp.m */; };
 		2E36CD9D1D5768800020704F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E36CD9C1D5768800020704F /* MainViewController.m */; };
 		2E6CA69C1D477B1A009BDE6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA69B1D477B1A009BDE6A /* main.m */; };
 		2E6CA69F1D477B1A009BDE6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA69E1D477B1A009BDE6A /* AppDelegate.m */; };
@@ -18,6 +20,7 @@
 		2E6CA6B21D477B62009BDE6A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E6CA6B11D477B62009BDE6A /* libsqlite3.tbd */; };
 		2E6CA6BD1D47811E009BDE6A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA6BC1D47811E009BDE6A /* LoginViewController.m */; };
 		2E6CA6C31D47876F009BDE6A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CA6C21D47876F009BDE6A /* SettingViewController.m */; };
+		2E8D250B1D73DCAC0076810C /* TiKuDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2E1CDA4F1D72D0EA002A2CD7 /* TiKuDB.sqlite */; };
 		2ED1B5F91D716D3900BF73C7 /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B5F81D716D3900BF73C7 /* DBHelper.m */; };
 		2ED1B5FD1D717C7200BF73C7 /* PoliticEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B5FC1D717C7200BF73C7 /* PoliticEngine.m */; };
 		2ED1B6051D717E3F00BF73C7 /* AnswerBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED1B6041D717E3F00BF73C7 /* AnswerBean.m */; };
@@ -27,10 +30,26 @@
 		2EDC31EE1D5611BF00544F41 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDC31ED1D5611BF00544F41 /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2E1CDA4A1D72CEC5002A2CD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E6CA68F1D477B1A009BDE6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E6CA6961D477B1A009BDE6A;
+			remoteInfo = PoliticsK;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0E0258F083E87DF7D41ABF2D /* Pods-PoliticsK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliticsK.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoliticsK/Pods-PoliticsK.release.xcconfig"; sourceTree = "<group>"; };
 		2E1CDA3E1D728ADC002A2CD7 /* PoliticHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PoliticHelper.h; path = Universal/Tools/PoliticHelper/PoliticHelper.h; sourceTree = "<group>"; };
 		2E1CDA3F1D728ADC002A2CD7 /* PoliticHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PoliticHelper.m; path = Universal/Tools/PoliticHelper/PoliticHelper.m; sourceTree = "<group>"; };
+		2E1CDA451D72CEC5002A2CD7 /* PoliticsKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoliticsKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E1CDA471D72CEC5002A2CD7 /* PoliticsKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoliticsKTests.m; sourceTree = "<group>"; };
+		2E1CDA491D72CEC5002A2CD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E1CDA4F1D72D0EA002A2CD7 /* TiKuDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = TiKuDB.sqlite; path = ../TiKuDB.sqlite; sourceTree = "<group>"; };
+		2E1CDA511D72D259002A2CD7 /* LoginHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginHelp.h; path = Universal/Tools/LoginHelp/LoginHelp.h; sourceTree = "<group>"; };
+		2E1CDA521D72D259002A2CD7 /* LoginHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginHelp.m; path = Universal/Tools/LoginHelp/LoginHelp.m; sourceTree = "<group>"; };
 		2E36CD9B1D5768800020704F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ViewController/Main/MainViewController.h; sourceTree = "<group>"; };
 		2E36CD9C1D5768800020704F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ViewController/Main/MainViewController.m; sourceTree = "<group>"; };
 		2E6CA6971D477B1A009BDE6A /* PoliticsK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliticsK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +84,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E1CDA421D72CEC5002A2CD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E6CA6941D477B1A009BDE6A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,12 +112,31 @@
 			name = PoliticHelper;
 			sourceTree = "<group>";
 		};
+		2E1CDA461D72CEC5002A2CD7 /* PoliticsKTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E1CDA471D72CEC5002A2CD7 /* PoliticsKTests.m */,
+				2E1CDA491D72CEC5002A2CD7 /* Info.plist */,
+			);
+			path = PoliticsKTests;
+			sourceTree = "<group>";
+		};
+		2E1CDA501D72D199002A2CD7 /* LoginHelp */ = {
+			isa = PBXGroup;
+			children = (
+				2E1CDA511D72D259002A2CD7 /* LoginHelp.h */,
+				2E1CDA521D72D259002A2CD7 /* LoginHelp.m */,
+			);
+			name = LoginHelp;
+			sourceTree = "<group>";
+		};
 		2E6CA68E1D477B1A009BDE6A = {
 			isa = PBXGroup;
 			children = (
 				2EDC31EA1D56103200544F41 /* PrefixHeader.pch */,
 				2E6CA6B11D477B62009BDE6A /* libsqlite3.tbd */,
 				2E6CA6991D477B1A009BDE6A /* PoliticsK */,
+				2E1CDA461D72CEC5002A2CD7 /* PoliticsKTests */,
 				2E6CA6981D477B1A009BDE6A /* Products */,
 				D0C9196483FEE38C2525DCE4 /* Pods */,
 				9CA3B9E7C86CDA53B63DB8B8 /* Frameworks */,
@@ -102,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6CA6971D477B1A009BDE6A /* PoliticsK.app */,
+				2E1CDA451D72CEC5002A2CD7 /* PoliticsKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +155,7 @@
 		2E6CA6991D477B1A009BDE6A /* PoliticsK */ = {
 			isa = PBXGroup;
 			children = (
+				2E8D250C1D73DCBA0076810C /* Resource */,
 				2E6CA6BE1D47812B009BDE6A /* StoryBoard */,
 				2E6CA6B51D477C91009BDE6A /* Model & Bean */,
 				2E6CA6B41D477C1B009BDE6A /* Tools */,
@@ -144,6 +191,7 @@
 		2E6CA6B41D477C1B009BDE6A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2E1CDA501D72D199002A2CD7 /* LoginHelp */,
 				2E1CDA3D1D728AAF002A2CD7 /* PoliticHelper */,
 				2ED1B5FA1D717C4200BF73C7 /* PoliticEngine */,
 				2ED1B5F61D716CF100BF73C7 /* DBHelper */,
@@ -196,6 +244,14 @@
 				2E6CA6C21D47876F009BDE6A /* SettingViewController.m */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		2E8D250C1D73DCBA0076810C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2E1CDA4F1D72D0EA002A2CD7 /* TiKuDB.sqlite */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		2ED1B5F61D716CF100BF73C7 /* DBHelper */ = {
@@ -272,6 +328,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E1CDA441D72CEC5002A2CD7 /* PoliticsKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E1CDA4E1D72CEC5002A2CD7 /* Build configuration list for PBXNativeTarget "PoliticsKTests" */;
+			buildPhases = (
+				2E1CDA411D72CEC5002A2CD7 /* Sources */,
+				2E1CDA421D72CEC5002A2CD7 /* Frameworks */,
+				2E1CDA431D72CEC5002A2CD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E1CDA4B1D72CEC5002A2CD7 /* PBXTargetDependency */,
+			);
+			name = PoliticsKTests;
+			productName = PoliticsKTests;
+			productReference = 2E1CDA451D72CEC5002A2CD7 /* PoliticsKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2E6CA6961D477B1A009BDE6A /* PoliticsK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E6CA6AE1D477B1A009BDE6A /* Build configuration list for PBXNativeTarget "PoliticsK" */;
@@ -301,6 +375,11 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "徐嘉宏";
 				TargetAttributes = {
+					2E1CDA441D72CEC5002A2CD7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 63F2CDCY4B;
+						TestTargetID = 2E6CA6961D477B1A009BDE6A;
+					};
 					2E6CA6961D477B1A009BDE6A = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -320,15 +399,24 @@
 			projectRoot = "";
 			targets = (
 				2E6CA6961D477B1A009BDE6A /* PoliticsK */,
+				2E1CDA441D72CEC5002A2CD7 /* PoliticsKTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E1CDA431D72CEC5002A2CD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E6CA6951D477B1A009BDE6A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8D250B1D73DCAC0076810C /* TiKuDB.sqlite in Resources */,
 				2E6CA6AA1D477B1A009BDE6A /* LaunchScreen.storyboard in Resources */,
 				2EDC31C61D53389B00544F41 /* Exam.storyboard in Resources */,
 				2E6CA6A71D477B1A009BDE6A /* Assets.xcassets in Resources */,
@@ -387,6 +475,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E1CDA411D72CEC5002A2CD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E1CDA481D72CEC5002A2CD7 /* PoliticsKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E6CA6931D477B1A009BDE6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,10 +499,19 @@
 				2ED1B6051D717E3F00BF73C7 /* AnswerBean.m in Sources */,
 				2ED1B5F91D716D3900BF73C7 /* DBHelper.m in Sources */,
 				2E6CA6C31D47876F009BDE6A /* SettingViewController.m in Sources */,
+				2E1CDA531D72D259002A2CD7 /* LoginHelp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E1CDA4B1D72CEC5002A2CD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E6CA6961D477B1A009BDE6A /* PoliticsK */;
+			targetProxy = 2E1CDA4A1D72CEC5002A2CD7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2E6CA6A31D477B1A009BDE6A /* Main.storyboard */ = {
@@ -436,6 +541,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E1CDA4C1D72CEC5002A2CD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PoliticsKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiahong.PoliticsKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoliticsK.app/PoliticsK";
+			};
+			name = Debug;
+		};
+		2E1CDA4D1D72CEC5002A2CD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PoliticsKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiahong.PoliticsKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoliticsK.app/PoliticsK";
+			};
+			name = Release;
+		};
 		2E6CA6AC1D477B1A009BDE6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -549,6 +678,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E1CDA4E1D72CEC5002A2CD7 /* Build configuration list for PBXNativeTarget "PoliticsKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E1CDA4C1D72CEC5002A2CD7 /* Debug */,
+				2E1CDA4D1D72CEC5002A2CD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2E6CA6921D477B1A009BDE6A /* Build configuration list for PBXProject "PoliticsK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

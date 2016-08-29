@@ -21,7 +21,7 @@
 - (PoliticEngine *)getPoliticEngineWithSection:(SectionBean *)section andType:(int)doType;
 
 //section:选择的科目 doType:答题模式
-- (PoliticEngine *)getPoliticEngineWithProject:(int)project andType:(int)doType;
+- (PoliticEngine *)getPoliticEngineWithSubject:(int)Subject andType:(int)doType;
 
 //获得上一个、下一个题目
 - (QuestionModel *)getNextQuestion;

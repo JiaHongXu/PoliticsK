@@ -24,21 +24,38 @@
 //主要业务常量
 
 //科目 ProjectType
-#define MAYUAN 1
-#define MAIGAI 2
-#define JINDAISHI 3
-#define SIXIU 4
+#define PROJECT_TYPE_MAYUAN 1
+#define PROJECT_TYPE_MAIGAI 2
+#define PROJECT_TYPE_JINDAISHI 3
+#define PROJECT_TYPE_SIXIU 4
 
 //选项 options
-#define A 1
-#define B 2
-#define C 3
-#define D 4
+#define OPTIONS_A 1
+#define OPTIONS_B 2
+#define OPTIONS_C 3
+#define OPTIONS_D 4
 
 //答题模式 doType
-#define SECTION_IN_ORDER 1
-//#define SECTION_RANDOM 2
-#define PROJECT_IN_ORDER 3
-#define PROJECT_RANDOM 4
-#define PROJECT_EXAM 5
-#define SECTION_TEST 6
+#define DO_TYPE_SECTION_IN_ORDER 1
+//#define DO_TYPE_SECTION_RANDOM 2
+#define DO_TYPE_PROJECT_IN_ORDER 3
+#define DO_TYPE_PROJECT_RANDOM 4
+#define DO_TYPE_PROJECT_EXAM 5
+#define DO_TYPE_SECTION_TEST 6
+
+//登录方式
+#define LOGIN_TYPE_WECHAT 1
+#define LOGIN_TYPE_WEIBO 2
+#define LOGIN_TYPE_QQ 3
+#define LOGIN_TYPE_ORIGINAL 4
+#define LOGIN_TYPE_DEV 5
+
+//LoginHelp NSUserdefaults 常量
+#define USER_NAME @"USER_NAME"
+#define USER_TYPE @"USER_TYPE"
+#define USER_IS_LOGIN @"USER_IS_LOGIN"
+
+//DBHelper 常量
+#define IS_DB_COPIED @"IS_DB_COPIED"
+#define DBNAME @"TiKuDB"
+#define DBPATH @"TiKuDB.sqlite"

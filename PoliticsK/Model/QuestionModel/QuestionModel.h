@@ -13,13 +13,16 @@
 @interface QuestionModel : NSObject
 
 //初始化
-- (instancetype)initWithQuestion:(NSString *)questionNum andContent:(NSString *)content andOptions:(NSArray *)options andCorrectAnswers:(NSArray *)answers andExplaination:(NSString *)explanation;
+- (instancetype)initWithQuestion:(NSString *)questionNum andContent:(NSString *)content andCorrectAnswers:(NSString *)answers andExplaination:(NSString *)explanation;
 
 //获取题号
 - (NSString *)getQuestionNum;
 
 //获取题目
 - (NSString *)getContent;
+
+//设置选项
+- (void)setOption:(AnswerBean *)option;
 
 //获取选项
 - (NSArray *)getOptions;

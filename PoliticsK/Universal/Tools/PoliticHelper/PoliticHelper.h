@@ -11,6 +11,6 @@
 @interface PoliticHelper : NSObject
 
 //获取章节
-//projectType:科目类型
-+ (NSMutableArray *)getSectionsWithProject:(int)projectType;
+//SubjectType:科目类型
++ (NSMutableArray *)getSectionsWithSubject:(int)SubjectType;
 @end
