@@ -27,6 +27,14 @@
     
     //测试 获得题目
     NSMutableArray *array1 = [DBHelper getQuestionsBySection:[array objectAtIndex:0]];
+//    [DBHelper setupDataBaseForUser:@"test"];
+    
+//    [DBHelper deleteDataBaseForUser:@"aaa"];
+    
+    [DBHelper setupDataBaseForUser:@"aaa" withProgress:^(int progress) {
+        NSLog(@"%d",progress);
+    }];
+
     //通过代码显示视图
     self.window = [UIWindow new];
     [self.window makeKeyAndVisible];

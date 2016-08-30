@@ -7,6 +7,7 @@
 //
 
 #import "DBHelper.h"
+#import "LoginHelp.h"
 #import "FMDatabase.h"
 #import "QuestionModel.h"
 #import "SectionBean.h"
@@ -30,6 +31,10 @@ static FMDatabase *db;
     }else{
         failure(@"打开数据库失败", nil);
     }
+//    
+//    if ([LoginHelp isFirstTimeLoginUser:<#(NSString *)#>]) {
+//        <#statements#>
+//    }
 }
 
 + (void)moveToDBFile{
@@ -57,6 +62,67 @@ static FMDatabase *db;
     }
 }
 
++ (NSMutableArray *)getQuestionNumOfAllQuestion{
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
+    NSString *sql = @"SELECT QuestionNum, CorrectAnswer FROM Question";
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        [array addObject:[s stringForColumn:@"QuestionNum"]];
+    }
+    
+    return array;
+}
+
+
++ (void)setupDataBaseForUser:(NSString *)userID{
+    NSString *sql = @"";
+    NSString *questionNum;
+    NSMutableArray *array = [self getQuestionNumOfAllQuestion];
+    
+    for (int i = 0; i < array.count; i++) {
+        questionNum = [array objectAtIndex:i];
+        sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
+        if (![db executeUpdate:sql]) {
+            NSLog(@"%@,%d", [db lastError].description, i);
+        }
+    }
+}
+
++ (void)setupDataBaseForUser:(NSString *)userID withProgress:(void(^)(int progress))progress {
+    NSString *sql = @"";
+    NSString *questionNum;
+    NSMutableArray *array = [self getQuestionNumOfAllQuestion];
+    int lastProgress = 0;
+    int currentProgress = 0;
+    
+    for (int i = 0; i < array.count; i++) {
+        questionNum = [array objectAtIndex:i];
+        sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
+        
+        currentProgress = ((float)(i+1)/(float)array.count)*100;
+        
+        if (currentProgress!=lastProgress) {
+            progress(currentProgress);
+            lastProgress = currentProgress;
+        }
+        
+        if (![db executeUpdate:sql]) {
+            NSLog(@"%@,%d", [db lastError].description, i);
+        }
+    }
+}
+
++ (void)deleteDataBaseForUser:(NSString *)userID {
+    NSString *sql = @"";
+    sql = [NSString stringWithFormat:@"DELETE FROM R_User_Question_Do_History WHERE UserID = \"%@\"", userID];
+    
+    if(![db executeUpdate:sql]){
+        NSLog(@"删除数据出错");
+    }else{
+        NSLog(@"删除数据成功");
+    }
+}
+
 + (NSMutableArray *)getQuestionsBySection:(SectionBean *)section{
     NSMutableArray *questions = [[NSMutableArray alloc] initWithCapacity:0];
     NSString *sql = [NSString stringWithFormat:@"SELECT * FROM Question WHERE CharaterNum = %@", [section getSectionNum]];
@@ -64,7 +130,7 @@ static FMDatabase *db;
     while ([s next]) {
         // 每条记录的检索值
         QuestionModel *model = [[QuestionModel alloc] initWithQuestion:[s stringForColumn:@"QuestionNum"] andContent:[s stringForColumn:@"QuestionContent"] andCorrectAnswers:[s stringForColumn:@"CorrectAnswer"] andExplaination:[s stringForColumn:@"QuestionExplain"]];
-        [self setOptionsByQuestion:model];
+//        [self setOptionsByQuestion:model];
         [questions addObject:model];
     }
     
@@ -110,24 +176,57 @@ static FMDatabase *db;
 }
 
 + (void)setIsCorrect:(BOOL)isCorrect byQuestion:(QuestionModel *)question{
-    int boolValue = [self valueOfBool:isCorrect];
-    
-//    NSString *sql = [NSString stringWithFormat:@"UPDATE SET  WHERE CharaterNum = %@", [section getSectionNum]];
-//    
-//    if (![db executeUpdate:sql]) {
-//        NSLog(@"%@", [db lastError].description);
-//    }
+    if (isCorrect) {
+        NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET rightTimes = %d WHERE QuestionNum = %@ and UserID = %@", [self getCorrectTimesByQuestion:question] + 1, [question getQuestionNum], [LoginHelp getUserID]];
+        
+        if (![db executeUpdate:sql]) {
+            NSLog(@"%@", [db lastError].description);
+        }
+    }else{
+        NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET wrongTimes = %d WHERE QuestionNum = %@ and UserID = %@", [self getWrongTimesByQuestion:question] + 1, [question getQuestionNum], [LoginHelp getUserID]];
+        
+        if (![db executeUpdate:sql]) {
+            NSLog(@"%@", [db lastError].description);
+        }
+    }
 }
 
 + (void)setIsCollected:(BOOL)isCollected byQuestion:(QuestionModel *)question{
+    int boolValue = isCollected ? 1 : 0;
     
+    NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET isCollected = %d WHERE QuestionNum = %@ and UserID = %@", boolValue, [question getQuestionNum], [LoginHelp getUserID]];
+    
+    if (![db executeUpdate:sql]) {
+        NSLog(@"%@", [db lastError].description);
+    }
 }
 
-+ (int)valueOfBool:(BOOL)Bool{
-    if (Bool) {
-        return 1;
-    }else{
-        return 0;
++ (BOOL)getIsCollectedByQuestion:(QuestionModel *)question{
+    NSString *sql = [NSString stringWithFormat:@"SELECT isCollected FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = %@", [question getQuestionNum], [LoginHelp getUserID]];
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        return [s intForColumn:@"isCollected"] == 1 ? YES : NO;
     }
+    return NO;
+}
+
++ (int)getCorrectTimesByQuestion:(QuestionModel *)question{
+    NSString *sql = [NSString stringWithFormat:@"SELECT rightTimes FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = %@", [question getQuestionNum], [LoginHelp getUserID]];
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        return [s intForColumn:@"rightTimes"];
+    }
+    
+    return 0;
+}
+
++ (int)getWrongTimesByQuestion:(QuestionModel *)question{
+    NSString *sql = [NSString stringWithFormat:@"SELECT wrongTimes FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = %@", [question getQuestionNum], [LoginHelp getUserID]];
+    FMResultSet *s = [db executeQuery:sql];
+    while ([s next]) {
+        return [s intForColumn:@"wrongTimes"];
+    }
+    
+    return 0;
 }
 @end

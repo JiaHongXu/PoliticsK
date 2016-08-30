@@ -10,11 +10,16 @@
 
 @interface LoginHelp : NSObject
 
-+ (void)loginWithUsername:(NSString *)username andLoginType:(int)type;
++ (void)loginWithUserID:(NSString *)userID andLoginType:(int)type;
 
 + (BOOL)isUserLogin;
 
+//昵称
 + (NSString *)getUsername;
+
++ (NSString *)getUserID;
+
++ (BOOL)isFirstTimeLogin;
 
 + (void)logout;
 @end

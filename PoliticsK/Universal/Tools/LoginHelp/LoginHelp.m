@@ -10,20 +10,41 @@
 
 @implementation LoginHelp
 
-+ (void)loginWithUsername:(NSString *)username andLoginType:(int)type{
++ (void)loginWithUserID:(NSString *)userID andLoginType:(int)type{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:username forKey:USER_NAME];
-    [defaults setObject:username forKey:USER_TYPE];
+    [defaults setObject:userID forKey:USER_ID];
+    [defaults setInteger:type forKey:USER_TYPE];
     [defaults setBool:YES forKey:USER_IS_LOGIN];
+    
+//    NSMutableArray *userArray = [[NSMutableArray alloc] initWithArray:[defaults arrayForKey:USER_ARRAY]];
+//    
+//    if (![userArray containsObject:username]) {
+//        [userArray addObject:username];
+//    }
 }
 
 + (BOOL)isUserLogin{
     return [[NSUserDefaults standardUserDefaults] boolForKey:USER_IS_LOGIN];
 }
 
++ (BOOL)isFirstTimeLogin{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *userArray = [[NSMutableArray alloc] initWithArray:[defaults arrayForKey:USER_ARRAY]];
+    
+    if ([userArray containsObject:[LoginHelp getUserID]]) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
 + (NSString *)getUsername{
     return [[NSUserDefaults standardUserDefaults] objectForKey:USER_NAME];
+}
+
++ (NSString *)getUserID{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID];
 }
 
 +(void)logout{

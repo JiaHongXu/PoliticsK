@@ -43,11 +43,15 @@
     // This is an example of a performance test case.
     // 测试性能例子
     [self measureBlock:^{
-        //测试 获得章节
+//        //测试 获得章节
+//        
+//        
+//        //测试 获得题目
+//        NSMutableArray *array1 = [DBHelper getQuestionsBySection:[_array objectAtIndex:0]];
+
+        [DBHelper setupDataBaseForUser:@"test"];
         
-        
-        //测试 获得题目
-        NSMutableArray *array1 = [DBHelper getQuestionsBySection:[_array objectAtIndex:0]];
+        NSLog(@"hhhhhh");
         // Put the code you want to measure the time of here.
         // 需要测试性能的代码
     }];

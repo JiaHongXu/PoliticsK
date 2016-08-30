@@ -51,9 +51,12 @@
 #define LOGIN_TYPE_DEV 5
 
 //LoginHelp NSUserdefaults 常量
+#define USER_ID_TEST @"TEST_ID"
 #define USER_NAME @"USER_NAME"
 #define USER_TYPE @"USER_TYPE"
+#define USER_ID @"USER_ID"
 #define USER_IS_LOGIN @"USER_IS_LOGIN"
+#define USER_ARRAY @"USER_ARRAY"
 
 //DBHelper 常量
 #define IS_DB_COPIED @"IS_DB_COPIED"
