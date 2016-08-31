@@ -9,6 +9,7 @@
 #import "DBHelper.h"
 #import "LoginHelp.h"
 #import "FMDatabase.h"
+#import "FMDatabaseQueue.h"
 #import "QuestionModel.h"
 #import "SectionBean.h"
 #import "AnswerBean.h"
@@ -16,6 +17,7 @@
 @implementation DBHelper
 
 static FMDatabase *db;
+static NSString *db_path;
 
 + (void)initUserUsageDataSuccess:(void (^)(NSString *))success Failure:(void (^)(NSString *, NSError *))failure{
     if (![[NSUserDefaults standardUserDefaults] boolForKey:IS_DB_COPIED]) {
@@ -23,18 +25,14 @@ static FMDatabase *db;
     }
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *filePath = [path stringByAppendingPathComponent:DBPATH];
-    db = [FMDatabase databaseWithPath:filePath];
+    db_path = [path stringByAppendingPathComponent:DBPATH];
+    db = [FMDatabase databaseWithPath:db_path];
     
     if ([db open]) {
         success(@"打开数据库成功");
     }else{
         failure(@"打开数据库失败", nil);
     }
-//    
-//    if ([LoginHelp isFirstTimeLoginUser:<#(NSString *)#>]) {
-//        <#statements#>
-//    }
 }
 
 + (void)moveToDBFile{
@@ -75,41 +73,87 @@ static FMDatabase *db;
 
 
 + (void)setupDataBaseForUser:(NSString *)userID{
-    NSString *sql = @"";
-    NSString *questionNum;
     NSMutableArray *array = [self getQuestionNumOfAllQuestion];
+    FMDatabaseQueue * queue = [FMDatabaseQueue databaseQueueWithPath:db_path];
+    dispatch_queue_t q = dispatch_queue_create("UserDatabaseInitQueue", NULL);
     
-    for (int i = 0; i < array.count; i++) {
-        questionNum = [array objectAtIndex:i];
-        sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
-        if (![db executeUpdate:sql]) {
-            NSLog(@"%@,%d", [db lastError].description, i);
-        }
-    }
+    dispatch_async(q, ^{
+        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            
+            NSString *sql = @"";
+            NSString *questionNum;
+            
+            for (int i = 0; i < array.count; i++) {
+                questionNum = [array objectAtIndex:i];
+                sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
+
+                if (![db executeUpdate:sql]) {
+                    NSLog(@"%@,%d", [db lastError].description, i);
+                }
+            }
+            
+        }];
+    });
 }
 
 + (void)setupDataBaseForUser:(NSString *)userID withProgress:(void(^)(int progress))progress {
-    NSString *sql = @"";
-    NSString *questionNum;
     NSMutableArray *array = [self getQuestionNumOfAllQuestion];
-    int lastProgress = 0;
-    int currentProgress = 0;
     
-    for (int i = 0; i < array.count; i++) {
-        questionNum = [array objectAtIndex:i];
-        sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
-        
-        currentProgress = ((float)(i+1)/(float)array.count)*100;
-        
-        if (currentProgress!=lastProgress) {
-            progress(currentProgress);
-            lastProgress = currentProgress;
-        }
-        
-        if (![db executeUpdate:sql]) {
-            NSLog(@"%@,%d", [db lastError].description, i);
-        }
-    }
+//    NSString *sql = @"";
+//    NSString *questionNum;
+//    
+//    int lastProgress = 0;
+//    int currentProgress = 0;
+//    
+//    for (int i = 0; i < array.count; i++) {
+//        questionNum = [array objectAtIndex:i];
+//        sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
+//        
+//        currentProgress = ((float)(i+1)/(float)array.count)*100;
+//        
+//        if (currentProgress!=lastProgress) {
+//            progress(currentProgress);
+//            lastProgress = currentProgress;
+//        }
+//        
+//        if (![db executeUpdate:sql]) {
+//            NSLog(@"%@,%d", [db lastError].description, i);
+//        }
+//    }
+    
+    
+    FMDatabaseQueue * queue = [FMDatabaseQueue databaseQueueWithPath:db_path];
+    dispatch_queue_t q = dispatch_queue_create("UserDatabaseInitQueue", NULL);
+    
+    dispatch_async(q, ^{
+        [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+            //开启缓存
+            [db shouldCacheStatements];
+            
+            NSString *sql = @"";
+            NSString *questionNum;
+            
+            int lastProgress = 0;
+            int currentProgress = 0;
+            
+            for (int i = 0; i < array.count; i++) {
+                questionNum = [array objectAtIndex:i];
+                sql = [NSString stringWithFormat:@"INSERT INTO R_User_Question_Do_History VALUES ( \"%@\", \"%@\", 0, 0, 0 )", userID, questionNum];
+                
+                currentProgress = ((float)(i+1)/(float)array.count)*100;
+                
+                if (currentProgress!=lastProgress) {
+                    progress(currentProgress);
+                    lastProgress = currentProgress;
+                }
+                
+                if (![db executeUpdate:sql]) {
+                    NSLog(@"%@,%d", [db lastError].description, i);
+                }
+            }
+            
+        }];
+    });
 }
 
 + (void)deleteDataBaseForUser:(NSString *)userID {
@@ -130,7 +174,7 @@ static FMDatabase *db;
     while ([s next]) {
         // 每条记录的检索值
         QuestionModel *model = [[QuestionModel alloc] initWithQuestion:[s stringForColumn:@"QuestionNum"] andContent:[s stringForColumn:@"QuestionContent"] andCorrectAnswers:[s stringForColumn:@"CorrectAnswer"] andExplaination:[s stringForColumn:@"QuestionExplain"]];
-//        [self setOptionsByQuestion:model];
+        //        [self setOptionsByQuestion:model];
         [questions addObject:model];
     }
     
@@ -168,10 +212,10 @@ static FMDatabase *db;
     while ([s next]) {
         // 每条记录的检索值
         SectionBean *bean = [[SectionBean alloc] initWithSectionNum:[s stringForColumn:@"CharaterNum"] andSectionName:[s stringForColumn:@"CharaterName"]];
-                             
+        
         [sections addObject:bean];
     }
-
+    
     return sections;
 }
 

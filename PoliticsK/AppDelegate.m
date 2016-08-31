@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "DBHelper.h"
+#import "LoginHelp.h"
 
 @interface AppDelegate ()
 @property (nonatomic) MainViewController *mainViewController;
@@ -22,18 +23,7 @@
     [self initUserData];
     [self initDataBase];
     
-    //测试 获得章节
-    NSMutableArray *array = [DBHelper getSectionsBySubjectType:@"1"];
-    
-    //测试 获得题目
-    NSMutableArray *array1 = [DBHelper getQuestionsBySection:[array objectAtIndex:0]];
-//    [DBHelper setupDataBaseForUser:@"test"];
-    
-//    [DBHelper deleteDataBaseForUser:@"aaa"];
-    
-    [DBHelper setupDataBaseForUser:@"aaa" withProgress:^(int progress) {
-        NSLog(@"%d",progress);
-    }];
+    [self testCode];
 
     //通过代码显示视图
     self.window = [UIWindow new];
@@ -55,6 +45,46 @@
     
     self.window.rootViewController = _mainNavigation;
 
+}
+
+- (void)testCode{
+//    [DBHelper deleteDataBaseForUser:@"test"];
+    [DBHelper deleteDataBaseForUser:USER_ID_TEST];
+    
+//    [DBHelper setupDataBaseForUser:@"test"];
+    
+//    [LoginHelp loginWithUserID:USER_ID_TEST andLoginType:LOGIN_TYPE_DEV];
+    [DBHelper setupDataBaseForUser:USER_ID_TEST withProgress:^(int progress) {
+        NSLog(@"%d", progress);
+    }];
+    
+
+//    //测试 获得章节
+//    NSMutableArray *array = [DBHelper getSectionsBySubjectType:@"1"];
+//    
+//    //测试 获得题目
+//    NSMutableArray *array1 = [DBHelper getQuestionsBySection:[array objectAtIndex:0]];
+//    
+//    [DBHelper setIsCorrect:YES byQuestion:[array1 objectAtIndex:1]];
+//    
+//    [DBHelper setIsCorrect:YES byQuestion:[array1 objectAtIndex:2]];
+//    
+//    [DBHelper setIsCorrect:NO byQuestion:[array1 objectAtIndex:2]];
+//    
+//    [DBHelper setIsCollected:YES byQuestion:[array1 objectAtIndex:3]];
+//    
+//    [DBHelper setIsCollected:YES byQuestion:[array1 objectAtIndex:4]];
+//    
+//    [DBHelper setIsCollected:NO byQuestion:[array1 objectAtIndex:4]];
+    
+    
+    //    [DBHelper setupDataBaseForUser:@"test"];
+    
+    //    [DBHelper deleteDataBaseForUser:@"aaa"];
+    //
+    //    [DBHelper setupDataBaseForUser:@"aaa" withProgress:^(int progress) {
+    //        NSLog(@"%d",progress);
+    //    }];
 }
 
 - (void)initDataBase{
