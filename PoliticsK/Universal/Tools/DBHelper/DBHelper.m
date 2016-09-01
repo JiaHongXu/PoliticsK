@@ -19,7 +19,7 @@
 static FMDatabase *db;
 static NSString *db_path;
 
-+ (void)initUserUsageDataSuccess:(void (^)(NSString *))success Failure:(void (^)(NSString *, NSError *))failure{
++ (void)initDatabaseSuccess:(void (^)(NSString *))success Failure:(void (^)(NSString *, NSError *))failure{
     if (![[NSUserDefaults standardUserDefaults] boolForKey:IS_DB_COPIED]) {
         [self moveToDBFile];
     }
@@ -221,13 +221,13 @@ static NSString *db_path;
 
 + (void)setIsCorrect:(BOOL)isCorrect byQuestion:(QuestionModel *)question{
     if (isCorrect) {
-        NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET rightTimes = %d WHERE QuestionNum = %@ and UserID = %@", [self getCorrectTimesByQuestion:question] + 1, [question getQuestionNum], [LoginHelp getUserID]];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET rightTimes = %d WHERE QuestionNum = %@ and UserID = \"%@\"", [self getCorrectTimesByQuestion:question] + 1, [question getQuestionNum], [LoginHelp getUserID]];
         
         if (![db executeUpdate:sql]) {
             NSLog(@"%@", [db lastError].description);
         }
     }else{
-        NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET wrongTimes = %d WHERE QuestionNum = %@ and UserID = %@", [self getWrongTimesByQuestion:question] + 1, [question getQuestionNum], [LoginHelp getUserID]];
+        NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET wrongTimes = %d WHERE QuestionNum = %@ and UserID = \"%@\"", [self getWrongTimesByQuestion:question] + 1, [question getQuestionNum], [LoginHelp getUserID]];
         
         if (![db executeUpdate:sql]) {
             NSLog(@"%@", [db lastError].description);
@@ -238,7 +238,7 @@ static NSString *db_path;
 + (void)setIsCollected:(BOOL)isCollected byQuestion:(QuestionModel *)question{
     int boolValue = isCollected ? 1 : 0;
     
-    NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET isCollected = %d WHERE QuestionNum = %@ and UserID = %@", boolValue, [question getQuestionNum], [LoginHelp getUserID]];
+    NSString *sql = [NSString stringWithFormat:@"UPDATE R_User_Question_Do_History SET isCollected = %d WHERE QuestionNum = %@ and UserID = \"%@\"", boolValue, [question getQuestionNum], [LoginHelp getUserID]];
     
     if (![db executeUpdate:sql]) {
         NSLog(@"%@", [db lastError].description);
@@ -246,7 +246,7 @@ static NSString *db_path;
 }
 
 + (BOOL)getIsCollectedByQuestion:(QuestionModel *)question{
-    NSString *sql = [NSString stringWithFormat:@"SELECT isCollected FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = %@", [question getQuestionNum], [LoginHelp getUserID]];
+    NSString *sql = [NSString stringWithFormat:@"SELECT isCollected FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = \"%@\"", [question getQuestionNum], [LoginHelp getUserID]];
     FMResultSet *s = [db executeQuery:sql];
     while ([s next]) {
         return [s intForColumn:@"isCollected"] == 1 ? YES : NO;
@@ -255,7 +255,7 @@ static NSString *db_path;
 }
 
 + (int)getCorrectTimesByQuestion:(QuestionModel *)question{
-    NSString *sql = [NSString stringWithFormat:@"SELECT rightTimes FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = %@", [question getQuestionNum], [LoginHelp getUserID]];
+    NSString *sql = [NSString stringWithFormat:@"SELECT rightTimes FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = \"%@\"", [question getQuestionNum], [LoginHelp getUserID]];
     FMResultSet *s = [db executeQuery:sql];
     while ([s next]) {
         return [s intForColumn:@"rightTimes"];
@@ -265,7 +265,7 @@ static NSString *db_path;
 }
 
 + (int)getWrongTimesByQuestion:(QuestionModel *)question{
-    NSString *sql = [NSString stringWithFormat:@"SELECT wrongTimes FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = %@", [question getQuestionNum], [LoginHelp getUserID]];
+    NSString *sql = [NSString stringWithFormat:@"SELECT wrongTimes FROM R_User_Question_Do_History WHERE QuestionNum = %@ and UserID = \"%@\"", [question getQuestionNum], [LoginHelp getUserID]];
     FMResultSet *s = [db executeQuery:sql];
     while ([s next]) {
         return [s intForColumn:@"wrongTimes"];

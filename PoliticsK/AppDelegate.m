@@ -20,10 +20,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self initUserData];
     [self initDataBase];
     
-    [self testCode];
+//    [self testCode];
 
     //通过代码显示视图
     self.window = [UIWindow new];
@@ -49,14 +48,14 @@
 
 - (void)testCode{
 //    [DBHelper deleteDataBaseForUser:@"test"];
-    [DBHelper deleteDataBaseForUser:USER_ID_TEST];
+//    [DBHelper deleteDataBaseForUser:USER_ID_TEST];
     
 //    [DBHelper setupDataBaseForUser:@"test"];
     
 //    [LoginHelp loginWithUserID:USER_ID_TEST andLoginType:LOGIN_TYPE_DEV];
-    [DBHelper setupDataBaseForUser:USER_ID_TEST withProgress:^(int progress) {
-        NSLog(@"%d", progress);
-    }];
+//    [DBHelper setupDataBaseForUser:USER_ID_TEST withProgress:^(int progress) {
+//        NSLog(@"%d", progress);
+//    }];
     
 
 //    //测试 获得章节
@@ -88,15 +87,11 @@
 }
 
 - (void)initDataBase{
-    [DBHelper initUserUsageDataSuccess:^(NSString *msg) {
+    [DBHelper initDatabaseSuccess:^(NSString *msg) {
         NSLog(@"%@",msg);
     } Failure:^(NSString *msg, NSError *error) {
         NSLog(@"%@",msg);
     }];
-}
-
-- (void)initUserData{
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

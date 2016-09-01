@@ -15,6 +15,8 @@
 @property (nonatomic) MBProgressHUD *waitingHud;
 @property (nonatomic) UIView *waitingView;
 
+@property (nonatomic) int currentSubjectType;
+
 @end
 
 @implementation BaseViewController
@@ -46,6 +48,10 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
     });
+}
+
+- (void)setCurrentType:(int)type{
+    _currentSubjectType = type;
 }
 
 - (void)startWaitingIndicator

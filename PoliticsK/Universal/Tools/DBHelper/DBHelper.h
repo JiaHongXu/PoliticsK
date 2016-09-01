@@ -13,7 +13,7 @@
 @interface DBHelper : NSObject
 
 //初始化用户数据，打开数据库，主要针对 R_User_Question_Do_History 表进行批量插入操作
-+ (void)initUserUsageDataSuccess:(void(^)(NSString *msg))success Failure:(void(^)(NSString *msg, NSError *error))failure;
++ (void)initDatabaseSuccess:(void (^)(NSString *))success Failure:(void (^)(NSString *, NSError *))failure;
 
 //为用户创建本地数据库
 + (void)setupDataBaseForUser:(NSString *)userID;
